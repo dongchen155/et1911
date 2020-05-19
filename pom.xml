@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.etoak.et1111</groupId>
@@ -6,13 +7,31 @@
   <packaging>pom</packaging>
   <modules>
   	<module>spring -ioc-review</module>
+    <module>springmvc-01-hello</module>
   </modules>
-  <dependencies>
-  <dependency>
-  <groupId>org.springframework</groupId>
-  <artifactId>spring-context</artifactId>
-  <version>5.2.2.RELEASE</version>
+  <!--  声明依赖，但不引入依赖-->
+  <dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>5.2.2.RELEASE</version>
+
+		</dependency>
+		<!-- servlet-api -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<!-- spring-webmvc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>5.2.2.RELEASE</version>
+		</dependency>
+	</dependencies>
   
-  </dependency>
-  </dependencies>
+  </dependencyManagement>
+ 
 </project>

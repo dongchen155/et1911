@@ -12,6 +12,7 @@ public class HelloController {
 		System.out.println("param name  -"+name);
 		request.setAttribute("result", "Hello"+name);
 		return "hello/index";
+
 	}
 
 }

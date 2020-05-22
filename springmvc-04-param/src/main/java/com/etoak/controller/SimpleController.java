@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- 
- *使用 HttpServletRequest传参
+ * 
+ * 使用 HttpServletRequest传参
  *
  *
  */
@@ -21,27 +21,24 @@ public class SimpleController {
 	@RequestMapping("/servlet")
 	public String servlet(HttpServletRequest request) {
 		String name = request.getParameter("name");
-		if(StringUtils.isEmpty(name)) {
-			name="world";
-				
+		if (StringUtils.isEmpty(name)) {
+			name = "world";
+
 		}
-		request.setAttribute("result", "Hello" +name);
+		request.setAttribute("result", "Hello" + name);
 		return "param";
-	
+
 	}
-	@RequestMapping(value="/simple",method= {RequestMethod.GET})
-	public ModelAndView simple(@RequestParam(required=false,defaultValue="1") int id,String name) {
-		System.out.println("id param"+id);
-		System.out.println("name param"+name);
-		ModelAndView mv=new ModelAndView();
+
+	@RequestMapping(value = "/simple", method = { RequestMethod.GET })
+	public ModelAndView simple(@RequestParam(required = false, defaultValue = "1") int id, String name) {
+		System.out.println("id param" + id);
+		System.out.println("name param" + name);
+		ModelAndView mv = new ModelAndView();
 		mv.addObject("result", "ModelAndView传值");
 		mv.setViewName("param");
 		return mv;
-		
-		
-		
-		
-		
+
 	}
 
 }

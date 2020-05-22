@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>首页</title>
+</head>
+<body>
+	<h2>首页</h2>
+	<h2>从request取值：
+		<span th:text="${user.id}"></span>
+		<span th:text="${user.name}"></span>
+	</h2>
+	
+	<hr style="margin-top:20px">
+	
+	<h2>从session取值：
+		<span th:text="${session.sessionUser.id}"></span>
+		<span th:text="${session.sessionUser.name}"></span>
+	</h2>
+	<hr style="margin-top:20px">
+	
+	<h2>遍历userList</h2>
+	<table border="1px">
+		<tr>
+			<td>id</td>
+			<td>name</td>
+			<td>age</td>
+		</tr>
+		<tr th:each="user, stat:${userList}">
+			<td><span th:text="${user.id}"></span></td>
+			<td><input readonly th:value="${user.name}"></td>
+			<td><input readonly th:value="${user.age}"></td>
+		</tr>
+	</table>
+	
+	<hr style="margin-top:20px">
+	<form th:action="@{/add}">
+		<input type="text" name="name"> <BR>
+		<input type="submit" value="提交">
+	</form>
+	
+	
+	<hr style="margin-top:20px">
+	<!-- 自动转成：<a href="/path/add?name=get"> -->
+	<a th:href="@{/add(name=get)}">Get请求传递参数</a>
+	
+	<hr style="margin-top:20px">
+	<button type="button" onclick="test()">测试Ajax</button>
+	
+	<script th:src="@{/static/js/jquery/jquery.min.js}" type="text/javascript"></script>
+	<script th:inline="javascript" type="text/javascript">
+		const path = /*[[${#request.getContextPath()}]]*/	
+		
+		function test() {
+			$.ajax({
+				url: path + '/json',
+				type: 'post',
+				data: JSON.stringify({name: "zs"}),
+				dataType: 'text',
+				contentType: 'application/json',
+				success: function(data) {
+					alert(data)
+				}
+			})
+		}
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>

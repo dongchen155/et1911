@@ -12,7 +12,8 @@
 		<module>springmvc-03</module>
 		<module>springmvc-04-param</module>
     <module>springmvc-05-car</module>
-  </modules>
+    <module>et1911-activemq</module>
+	</modules>
 	<!-- 声明依赖，但不引入依赖 -->
 	<dependencyManagement>
 		<dependencies>
@@ -115,6 +116,17 @@
 			<version>1.3.3</version>
 		
 		
+		</dependency>
+		<dependency>
+				<groupId>org.hibernate.validator</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>6.1.2.Final</version>
+
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.13</version>
 		</dependency>
 				
 		</dependencies>

@@ -91,6 +91,16 @@
 			<artifactId>commons-fileupload</artifactId>
 			
 		</dependency>
+				<dependency>
+				<groupId>org.hibernate.validator</groupId>
+				<artifactId>hibernate-validator</artifactId>
+
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>springmvc-05-car</finalName>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/static/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet">
+	<style type="text/css">
+		body {
+			width: 100%;
+			height: 100%;
+			background: url('[[@{/}]]static/img/bg.jpg') no-repeat;
+			background-size: cover;
+			position: fixed;
+		}
+		.login {
+			background: #FFFFFF;
+			width: 400px;
+			height: 300px;
+			margin: 100px auto;
+			padding: 70px 15px 15px 15px;
+			border: 1px solid #eaeaea;
+			border-radius: 15px;
+			box-shadow: 0px 0px 20px #c6c6c6;
+		}
+		.login-btn {
+			margin-top: 50px;
+		}
+	</style>
+<title>登录页面</title>
+</head>
+  <body>
+  <div class="login">
+   <form th:action="@{/user/login}" method="post" class="form-horizontal" role="form">
+	  <div class="form-group">
+	    <label for="name" class="col-sm-3 control-label">用户名</label>
+	    <div class="col-sm-9">
+	      <input type="text" class="form-control" id="name"
+	      	name="name"
+	       placeholder="用户名" autocomplete="off">
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="password" class="col-sm-3 control-label">密码</label>
+	    <div class="col-sm-9">
+	      <input type="password" class="form-control" 
+	      name="password"
+	      id="password" placeholder="密码">
+	    </div>
+	  </div>
+	  
+	  <div class="form-group">
+	        <label for="password" class="col-sm-3 control-label">
+	          <img th:src="@{/code}" onclick='changeCode()' style="margin-left:-11px">
+	        </label>
+	        <div class="col-sm-9">
+		      <input type="password" class="form-control" 
+		      name="code"
+		      id="code" placeholder="验证码">
+	    </div>
+	  </div>
+	 <div>
+	 <span th:text="${error}"></span>
+	 </div>
+	  <div class="form-group">
+	    <div class="col-sm-offset-4 col-sm-8">
+	    <div class="login-btn">
+	      <button type="submit"  class="btn btn-primary">登录</button>
+	      </div>
+	    </div>
+	  </div>
+	</form>
+	</div>
+	<script th:src="@{/static/js/jquery/jquery.min.js}"
+		type="text/javascript"></script>
+	<script th:src="@{/static/bootstrap/js/bootstrap.min.js}"
+		type="text/javascript"></script>
+		<script th:inline="javascript" type="text/javascript">
+		const path=/*[[${#request.getContextPath()}]]*/
+		function changeCode(){
+			$('#img').attr('src',path+'/code?date='+new Date())
+			
+		}
+		
+		
+		</script>
+  </body>
+</html>

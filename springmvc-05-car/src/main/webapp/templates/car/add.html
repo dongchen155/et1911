@@ -13,6 +13,9 @@
 </style>
 </head>
 <body>
+<div>
+	<span th:text="${paramError}"></span>
+</div>
 <div id="form">
 <form id="addForm" th:action="@{/car/add}" method="post" enctype="multipart/form-data" class="form-horizontal" role="form">
 	
@@ -133,7 +136,7 @@
 		 et1911.querySelectDict('level');
 		 et1911.querySelectDict('output_volume');
 		 et1911.queryGearbox();
-		 et1911.validateForm();
+		 /* et1911.validateForm(); */
 	 })
 	 let et1911={
 			 validateForm:function(){
